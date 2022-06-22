@@ -15,7 +15,6 @@ GetComponent<type>() 를 사용하기 위해서는 UnityEngine.UI 를 라이브�
 
 챕터5 화살 피하기 게임
 프리팹 시간(초단위) 충돌감지 UI
-프리팹 시간(초단위) 충돌감지 사용
 
 getkeydown은 키를 눌렀을 때
 getkey 는 키를 누르고있을 때
