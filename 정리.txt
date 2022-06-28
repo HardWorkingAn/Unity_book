@@ -128,3 +128,39 @@ ex)
 (0.5, 0).normalized => (1, 0) : → 방향
 (0.2, 0.2).normalized => (0.7071068, 0.7071068) : ↗ 방향
  
+
+챕터8 사과 받기 게임
+3D 사용, 광원, 사운드, 프리팹, 트리거, ㅎ오디오, 컴포넌트, 외부컴포넌트 참조
+
+빛(라이트)의 종류 396p
+
+그림자가 들쑥 날쑥 한것 같다면 편집 -> 프로젝트 셋팅 -> 품질 에서 그림자의 거리 변경
+
+Raycast 메소드는 ray(빛)을 발사해 충돌하면 true 값을 반환하는 메서드
+https://bluemeta.tistory.com/10 Raycast 설명과 out hit 뜻 나옴
+ray와 충돌하는 지점을 raycastHit 구조체 변수인 hit에 저장한다는 뜻
+
+out 키워드는 매서드 내의 값을 반환받아 변수에 저장하는 방식 
+
+ 콜라이더 트리거 방식을 사용하기 위해서는 is Trigger 속성을 체크해야한다.
+
+편집 -> 프로젝트 셋팅 -> 태그와 레이어 에서 태크를 추가할 수 있다.
+오브젝트 속성 맨위 아래 보면 태그를 설정하여 C# 스크립트를 통해 태그를 이용할 수 있다.
+
+오디오 클립은 사운드는 public 을 통해 C# 스크립트 속성에서 설정을 할 수 있다.
+
+AudioSource 를 사용하기 떄문에 AudioSource 변수를 만들고 
+this.aud = GetComponent<AudioSource>();  해서 컴포넌트를 변수에 저장해야 한다.
+this.aud.PlayOneShot(this.appleSE);  <- 방식으로 public 으로 설정한 AudioClip 타입의 변수의 사운드는 C#스크립트 속성에서 사운드 등륵을 하여 재생가능
+
+Random.Range(a,b) 는 a <= x < b 값을 리턴 정수를 대입하면 정수값만 나옴
+(-1.0f, 2.0f) 하면 소숫점 첫째자리 까지 포함한 랜덤값이 리턴된다.
+
+UI 는 월드 좌표계가 아닌 화면 좌표계를 쓴다.
+
+다른 오브젝트에 등륵된 C# 스크립트를 가져다 쓰기 위해서는 
+GameObject 타입으로 변수를 만들고  GameObject.Find("오브젝트명"); 으로 변수에 저장해야한다.
+사용할 때는 변수명.GetComponent<C#스크립트명>.함수 or 변수 를 이용해서 변수설정과 함수 작동을 시킬수 있다.
+
+ItemGenerator 에서 Setter 이용해 ItemController 의 speed를 설정할 때는 GameObject 변수명에 Instantiate(프리팹) 으로 해당 오브젝트의 정보를
+가지고 있기 때문에 따로 GameObject.Find를 할 필요가 없다.
